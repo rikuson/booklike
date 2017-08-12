@@ -1,10 +1,3 @@
-<?php
-/*
- * project   : OD Base
- * file name : header-topmenu.php
- * created   : 2017/06/20
- */
-?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>

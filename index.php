@@ -1,10 +1,3 @@
-<?php
-/*
- * project   :OD Base
- * file name :index.php
- * created   :2017/06/13
- */
-?>
 <?php get_header(); ?>
 	<main id="primary" class="content-area">
 		<?php if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
