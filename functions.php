@@ -70,10 +70,10 @@ add_action( 'after_setup_theme', 'odbase_content_width', 0 );
 /*
  * サイドバーを定義
  */
-function odbase_widgets_init() {
+function booklike_widgets_init() {
 	register_sidebar( array(
-		'name'          => 'Sidebar',
-		'id'            => 'sidebar',
+		'name'          => 'Footer',
+		'id'            => 'footer',
 		'description'   => 'ここにウィジェットを追加',
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -81,7 +81,7 @@ function odbase_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'odbase_widgets_init' );
+add_action( 'widgets_init', 'booklike_widgets_init' );
 
 /*
  * スクリプトを読み込み
