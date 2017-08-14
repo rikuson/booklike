@@ -66,5 +66,4 @@
 			the_post_navigation();
 		?>
 	</main>
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
