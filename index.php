@@ -23,7 +23,7 @@
 				// 記事更新の場合は記事作成とは別にパースする
 				if (get_the_time('U') !== get_the_modified_time('U')) {
 					$formated_post['status'] = '更新';
-					$formated_post['date'] = get_the_modified_date();
+					$formated_post['date'] = get_the_modified_time(get_option('date_format'));
 					$formated_post['timestamp'] = get_the_modified_time('U');
 					$posts_order_by_category[$category->term_id][] = $formated_post;
 				}
@@ -35,9 +35,9 @@
 			return $b['timestamp'] - $a['timestamp'];
 		}
 
-		foreach ($posts_order_by_category as $cat_ID => $posts) :
+		foreach ($posts_order_by_category as $cat_ID => $order_posts) :
 	?>
-	<h2>
+	<h2 class="category-list">
 		<?php
 			$cat_name = get_the_category_by_ID($cat_ID);
 			$cat_link = get_category_link($cat_ID);
@@ -46,10 +46,10 @@
 	</h2>
 	<ul>
 		<?php
-			usort($posts, 'sortByTimestamp');
-			foreach ($posts as $post) :
+			usort($order_posts, 'sortByTimestamp');
+			foreach ($order_posts as $order_post) :
 		?>
-		<li><?php echo $post['date']; ?> - <?php echo $post['status']; ?> - <a href="<?php echo $post['link']; ?>" rel="bookmark"><?php echo $post['title']; ?></a></li>
+		<li><?php echo $order_post['date']; ?> - <?php echo $order_post['status']; ?> - <a href="<?php echo $order_post['link']; ?>" rel="bookmark"><?php echo $order_post['title']; ?></a></li>
 		<?php endforeach; ?>
 	</ul>
 	<?php endforeach; ?>

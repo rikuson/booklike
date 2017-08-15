@@ -1,16 +1,8 @@
-<?php
-/*
- * project   : OD Base
- * file name : page.php
- * created   : 2017/06/16
- */
-?>
 <?php get_header(); ?>
-	<main id="primary" class="content-area">
+	<main>
 		<?php while ( have_posts() ): the_post(); ?>
 		<article id="post-<?php the_id(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
-				<h1 class="entry-title"><?php the_title(); ?></h1>
 				<!--
 				#
 				# メタ情報は固定ページに掲載しないという場合もあるので

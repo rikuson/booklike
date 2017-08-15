@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 Theme Name: Book Like
 Theme URI: 
@@ -13,5 +14,202 @@ Text Domain: booklike
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/*
+ * font family
+ */
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Yu Gothic", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif; }
+
+/*
+ * Form Reset
+ */
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+/*
+ * box-sizing
+ */
+* {
+  box-sizing: border-box; }
+
+/*
+ * responsive images
+ */
+img {
+  max-width: 100%;
+  height: auto; }
+
+/*
+ * Accessibility 
+ */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  word-wrap: normal !important; }
+  .screen-reader-text:focus {
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: #21759b;
+    display: block;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */ }
+
+ol,
+ul {
+  padding-left: 1rem; }
+  ol:not(:last-child),
+  ul:not(:last-child) {
+    margin-bottom: 1rem; }
+  ol li:not(:last-child),
+  ul li:not(:last-child) {
+    margin-bottom: 0.5rem; }
+
+.page {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  background: #fff; }
+
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+textarea {
+  border: 1px solid #888; }
+
+label {
+  vertical-align: top; }
+
+.site-header {
+  padding: 1rem;
+  border-bottom: 1px solid #000; }
+
+.post-title,
+.archive-title,
+.site-title {
+  font-size: 2rem; }
+  .post-title a,
+  .archive-title a,
+  .site-title a {
+    color: #333333;
+    text-decoration: none; }
+
+.archive-description,
+.site-description {
+  margin-top: 0.5rem; }
+
+.site-content {
+  padding: 1rem; }
+
+.category-list {
+  font-size: 1rem; }
+  .category-list:not(:last-child) {
+    margin-bottom: 0.5rem; }
+
+.entry-footer {
+  margin-top: 0.5rem; }
+
+.nav-links {
+  margin-top: 0.5rem; }
+
+.comments-area {
+  margin-top: 2rem; }
+  .comments-area .comments-title {
+    font-size: 1rem; }
+  .comments-area .says,
+  .comments-area .fn {
+    vertical-align: top;
+    font-size: 1rem; }
+  .comments-area .comment-metadata {
+    font-size: 1rem; }
+
+.entry-meta {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 0.5rem; }
+  .entry-meta .created-at,
+  .entry-meta .updated-at,
+  .entry-meta .category-links,
+  .entry-meta .tag-links,
+  .entry-meta .author {
+    display: block;
+    line-height: normal; }
+
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 1rem; }
+  .site-footer a {
+    color: #fff; }
 
 /*# sourceMappingURL=style.css.map */

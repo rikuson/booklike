@@ -9,29 +9,25 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div class="page">
 <header class="site-header">
-	<div class="site-header__branding">
-		<?php if ( is_home() || is_front_page() ): ?>
-		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		<?php else: ?>
-		<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-		<?php endif; ?>
-		<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-	</div>
-	<nav class="site-header__gnavi">
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'global',
-				'menu_class' => 'gnavi',
-				'depth' => 1,
-			) );
-		?>
-	</nav>
+	<?php if ( is_home() || is_front_page() ): ?>
+	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+	<?php
+		elseif ( is_archive() ) :
+		the_archive_title( '<h1 class="archive-title">', '</h1>' );
+		the_archive_description( '<div class="archive-description">', '</div>' );
+	?>
+	<?php
+		elseif ( is_single() ) :
+		echo '<h1 class="post-title">' . get_the_title() . '</h1>';
+	?>
+	<?php endif; ?>
 	<?php if ( get_header_image() ): ?>
 	<figure class="custom-header-image">
 		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 	</figure>
 	<?php endif; ?>
 </header>
-<div id="content" class="site-content">
+<div class="site-content">
