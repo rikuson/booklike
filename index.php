@@ -1,51 +1,54 @@
-<?php get_header(); ?>
-	<main id="primary" class="content-area">
-		<?php if ( have_posts() ) : while ( have_posts() ): the_post(); ?>
+<?php
+	get_header();
+?>
+<main>
+	<?php
+		// カテゴリをキーにして並び替える
+		$posts_order_by_category = array();
+		while (have_posts()) {
+			the_post();
+			$formated_post = array(
+				'link' => get_the_permalink(),
+				'title' => get_the_title(),
+				'status' => '作成',
+				'date' => get_the_time(get_option('date_format')),
+				'timestamp' => get_the_time('U')
+			);
+			$categories = get_the_category();
+			foreach ($categories as $category) {
+				$posts_order_by_category[$category->term_id][] = $formated_post;
+				// 記事更新の場合は記事作成とは別にパースする
+				if (get_the_time('U') !== get_the_modified_time('U')) {
+					$formated_post['status'] = '更新';
+					$formated_post['date'] = get_the_modified_date();
+					$formated_post['timestamp'] = get_the_modified_time('U');
+					$posts_order_by_category[$category->term_id][] = $formated_post;
+				}
+			}
+		}
+		wp_reset_query();
+
+		function sortByTimestamp($a, $b){
+			return $b['timestamp'] - $a['timestamp'];
+		}
+
+		foreach ($posts_order_by_category as $cat_ID => $posts) :
+	?>
+	<h2>
 		<?php
-			// カテゴリー名をリンクなしで取得したい場合
-			$cat = get_the_category();
-			$cat = $cat[0];
-			// 出力はline.23
+			$cat_name = get_the_category_by_ID($cat_ID);
+			$cat_link = get_category_link($cat_ID);
+			echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
 		?>
-		<article id="post-<?php the_id(); ?>" <?php post_class(); ?>>
-			<header class="entry-header">
-				<h2 class="entry-title">
-					<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
-				</h2>
-				<div class="entry-meta">
-					<span class="date">投稿日 : <?php the_time( get_option( 'date_format' ) ); ?></span>
-					<span class="category">カテゴリー : <?php if ( $cat ) { echo esc_html( $cat->name ); } // カテゴリー名（リンクなし）を表示 ?></span>
-					<span class="categori-links">カテゴリー : <?php the_category( '、' ); ?></span>
-					<span class="tag-links">タグ : <?php the_tags( '', '、' ); ?></span>
-					<span class="author">投稿者 : <?php the_author(); ?></span>
-				</div>
-				<?php if ( has_post_thumbnail() ): ?>
-				<figure class="entry-thumbnail">
-					<?php the_post_thumbnail(); ?>
-				</figure>
-				<?php 
-					/* else:
-					 * サムネイルがない場合に挿入する画像を指定
-					 * その際にはfigureの位置を再考せよ
-					*/
-				?>
-				<?php endif; ?>
-			</header>
-			<div class="entry-excerpt">
-				<?php the_excerpt(); ?>
-			</div>
-		</article>
+	</h2>
+	<ul>
 		<?php
-			endwhile;
-			
-			/*
-			 * デフォルトのページ送りを出力
-			 * wp-pagenaviなどページネーションプラグインを利用する場合には削除もしくは分岐
-			 */
-			the_posts_navigation();
-			
-			endif;
+			usort($posts, 'sortByTimestamp');
+			foreach ($posts as $post) :
 		?>
-	</main>
-<?php get_sidebar(); ?>
+		<li><?php echo $post['date']; ?> - <?php echo $post['status']; ?> - <a href="<?php echo $post['link']; ?>" rel="bookmark"><?php echo $post['title']; ?></a></li>
+		<?php endforeach; ?>
+	</ul>
+	<?php endforeach; ?>
+</main>
 <?php get_footer(); ?>
