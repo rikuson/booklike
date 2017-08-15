@@ -124,16 +124,15 @@ img {
     z-index: 100000;
     /* Above WP toolbar. */ }
 
-.link,
-a {
-  color: #004eac;
-  text-decoration: underline; }
-  .link:hover,
-  a:hover {
-    opacity: .7; }
-  .link:visited,
-  a:visited {
-    color: #551A8B; }
+ol,
+ul {
+  padding-left: 1rem; }
+  ol:not(:last-child),
+  ul:not(:last-child) {
+    margin-bottom: 1rem; }
+  ol li:not(:last-child),
+  ul li:not(:last-child) {
+    margin-bottom: 0.5rem; }
 
 .page {
   max-width: 980px;
@@ -141,12 +140,70 @@ a {
   margin: 0 auto;
   background: #fff; }
 
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+textarea {
+  border: 1px solid #888; }
+
+label {
+  vertical-align: top; }
+
 .site-header {
   padding: 1rem;
   border-bottom: 1px solid #000; }
 
+.post-title,
+.archive-title,
+.site-title {
+  font-size: 2rem; }
+  .post-title a,
+  .archive-title a,
+  .site-title a {
+    color: #333333;
+    text-decoration: none; }
+
+.archive-description,
+.site-description {
+  margin-top: 0.5rem; }
+
 .site-content {
   padding: 1rem; }
+
+.category-list {
+  font-size: 1rem; }
+  .category-list:not(:last-child) {
+    margin-bottom: 0.5rem; }
+
+.entry-footer {
+  margin-top: 0.5rem; }
+
+.nav-links {
+  margin-top: 0.5rem; }
+
+.comments-area {
+  margin-top: 2rem; }
+  .comments-area .comments-title {
+    font-size: 1rem; }
+  .comments-area .says,
+  .comments-area .fn {
+    vertical-align: top;
+    font-size: 1rem; }
+  .comments-area .comment-metadata {
+    font-size: 1rem; }
+
+.entry-meta {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 0.5rem; }
+  .entry-meta .created-at,
+  .entry-meta .updated-at,
+  .entry-meta .category-links,
+  .entry-meta .tag-links,
+  .entry-meta .author {
+    display: block;
+    line-height: normal; }
 
 .site-footer {
   background: #000;
@@ -154,35 +211,5 @@ a {
   padding: 1rem; }
   .site-footer a {
     color: #fff; }
-
-.headline-large {
-  font-size: 2rem; }
-  .headline-large:not(:last-child) {
-    margin-bottom: 1rem; }
-  .headline-large a:not(.link) {
-    color: #333333;
-    text-decoration: none; }
-
-.headline-midium {
-  font-size: 1rem; }
-  .headline-midium:not(:last-child) {
-    margin-bottom: 0.5rem; }
-  .headline-midium a:not(.link) {
-    color: #333333;
-    text-decoration: none; }
-
-ol,
-ul {
-  padding-left: 1rem; }
-  ol:not(:last-child),
-  ul:not(:last-child) {
-    margin-bottom: 2rem; }
-  ol li:not(:last-child),
-  ul li:not(:last-child) {
-    margin-bottom: 0.5rem; }
-
-.list-disc {
-  margin-left: 0.5rem;
-  list-style-type: disc; }
 
 /*# sourceMappingURL=style.css.map */

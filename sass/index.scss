@@ -31,15 +31,17 @@ Use it to make something cool, have fun, and share what you've learned with othe
 //======================================================================
 @import "settings";
 
-.link,
-a {
-	color: $link-color;
-	text-decoration: underline;
-	&:hover {
-		opacity: .7;
+//======================================================================
+// Basic
+//======================================================================
+ol,
+ul {
+	padding-left: $midium-size;
+	&:not(:last-child){
+		margin-bottom: $midium-size;
 	}
-	&:visited {
-		color: $visited-color;
+	li:not(:last-child) {
+		margin-bottom: $small-size;
 	}
 }
 
@@ -50,15 +52,95 @@ a {
 	background: #fff;
 }
 
+input[type="text"],
+input[type="email"],
+input[type="search"],
+input[type="url"],
+textarea {
+	border: 1px solid #888;
+}
+
+label {
+	vertical-align: top;
+}
+
+//======================================================================
+// Header
+//======================================================================
 .site-header {
 	padding: $midium-size;
 	border-bottom: 1px solid #000;
 }
 
+.post-title,
+.archive-title,
+.site-title{
+	font-size: $large-size;
+	a {
+		color: $text-color;
+		text-decoration: none;
+	}
+}
+
+.archive-description,
+.site-description {
+	margin-top: $small-size;
+}
+
+//======================================================================
+// Content
+//======================================================================
 .site-content {
 	padding: $midium-size;
 }
 
+.category-list {
+	font-size: $midium-size;
+	&:not(:last-child){
+		margin-bottom: $small-size;
+	}
+}
+
+.entry-footer {
+	margin-top: $small-size;
+}
+
+.nav-links {
+	margin-top: $small-size;
+}
+
+.comments-area {
+	margin-top: $large-size;
+	.comments-title {
+		font-size: $midium-size;
+	}
+	.says,
+	.fn {
+		vertical-align: top;
+		font-size: $midium-size;
+	}
+	.comment-metadata {
+		font-size: $midium-size;
+	}
+}
+
+.entry-meta {
+	display: inline-block;
+	border: 1px solid #000;
+	padding: $small-size;
+	.created-at,
+	.updated-at,
+	.category-links,
+	.tag-links,
+	.author {
+		display: block;
+		line-height: normal;
+	}
+}
+
+//======================================================================
+// Footer
+//======================================================================
 .site-footer {
 	background: #000;
 	color: #fff;
@@ -67,42 +149,4 @@ a {
 	a {
 		color: #fff;
 	}
-}
-
-.headline-large {
-	font-size: $large-size;
-	&:not(:last-child){
-		margin-bottom: $midium-size;
-	}
-	a:not(.link) {
-		color: $text-color;
-		text-decoration: none;
-	}
-}
-
-.headline-midium {
-	font-size: $midium-size;
-	&:not(:last-child){
-		margin-bottom: $small-size;
-	}
-	a:not(.link) {
-		color: $text-color;
-		text-decoration: none;
-	}
-}
-
-ol,
-ul {
-	padding-left: $midium-size;
-	&:not(:last-child){
-		margin-bottom: $large-size;
-	}
-	li:not(:last-child) {
-		margin-bottom: $small-size;
-	}
-}
-
-.list-disc {
-	margin-left: $small-size;
-	list-style-type: disc;
 }

@@ -37,11 +37,11 @@
 
 		foreach ($posts_order_by_category as $cat_ID => $order_posts) :
 	?>
-	<h2 class="headline-midium">
+	<h2 class="category-list">
 		<?php
 			$cat_name = get_the_category_by_ID($cat_ID);
 			$cat_link = get_category_link($cat_ID);
-			echo '<a class="link" href="' . $cat_link . '">' . $cat_name . '</a>';
+			echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
 		?>
 	</h2>
 	<ul>
