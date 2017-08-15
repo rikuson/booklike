@@ -9,29 +9,16 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="site">
+<div class="page">
+<?php if ( is_home() || is_front_page() ): ?>
 <header class="site-header">
-	<div class="site-header__branding">
-		<?php if ( is_home() || is_front_page() ): ?>
-		<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-		<?php else: ?>
-		<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-		<?php endif; ?>
-		<p class="site-description"><?php bloginfo( 'description' ); ?></p>
-	</div>
-	<nav class="site-header__gnavi">
-		<?php
-			wp_nav_menu( array(
-				'theme_location' => 'global',
-				'menu_class' => 'gnavi',
-				'depth' => 1,
-			) );
-		?>
-	</nav>
+	<h1 class="headline-large"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 	<?php if ( get_header_image() ): ?>
 	<figure class="custom-header-image">
 		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 	</figure>
 	<?php endif; ?>
 </header>
-<div id="content" class="site-content">
+<?php endif; ?>
+<div class="site-content">

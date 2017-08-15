@@ -14,3 +14,95 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
 
+//======================================================================
+// reset css
+//======================================================================
+@import "owned/reset/reset";
+
+//======================================================================
+// import
+//======================================================================
+@import "owned/mixin";
+@import "owned/reset/myresets";
+@import "owned/variables";
+
+//======================================================================
+// Setting
+//======================================================================
+@import "settings";
+
+.link,
+a {
+	color: $link-color;
+	text-decoration: underline;
+	&:hover {
+		opacity: .7;
+	}
+	&:visited {
+		color: $visited-color;
+	}
+}
+
+.page {
+	max-width: 980px;
+	width: 100%;
+	margin: 0 auto;
+	background: #fff;
+}
+
+.site-header {
+	padding: $midium-size;
+	border-bottom: 1px solid #000;
+}
+
+.site-content {
+	padding: $midium-size;
+}
+
+.site-footer {
+	background: #000;
+	color: #fff;
+	padding: $midium-size;
+
+	a {
+		color: #fff;
+	}
+}
+
+.headline-large {
+	font-size: $large-size;
+	&:not(:last-child){
+		margin-bottom: $midium-size;
+	}
+	a:not(.link) {
+		color: $text-color;
+		text-decoration: none;
+	}
+}
+
+.headline-midium {
+	font-size: $midium-size;
+	&:not(:last-child){
+		margin-bottom: $small-size;
+	}
+	a:not(.link) {
+		color: $text-color;
+		text-decoration: none;
+	}
+}
+
+ol,
+ul {
+	padding-left: $midium-size;
+	&:not(:last-child){
+		margin-bottom: $large-size;
+	}
+	li:not(:last-child) {
+		margin-bottom: $small-size;
+	}
+}
+
+.list-disc {
+	margin-left: $small-size;
+	list-style-type: disc;
+}
