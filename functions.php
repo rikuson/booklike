@@ -92,15 +92,15 @@ function booklike_scripts() {
 add_action( 'wp_enqueue_scripts', 'booklike_scripts' );
 
 /*
- * カスタヘッダーの設定
+ * アーカイブタイトル
  */
-$args = array(
-	'width'         => 1800,
-	'height'        => 600,
-	'default-image' => '',
-);
-add_theme_support( 'custom-header', $args );
-
+function custom_archive_title( $title ){
+    if ( is_category() ) {
+        $title = single_term_title( '', false );
+    }
+    return $title;
+}
+add_filter( 'get_the_archive_title', 'custom_archive_title', 10 );
 
 /*
  * read more ボタンをexcerpt出力の後に設置
