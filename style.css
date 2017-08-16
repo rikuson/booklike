@@ -165,7 +165,10 @@ label {
 
 .archive-description,
 .site-description {
-  margin-top: 0.5rem; }
+  margin-top: 1rem; }
+
+.breadcrumbs {
+  margin-bottom: 0.5rem; }
 
 .site-content {
   padding: 1rem; }
