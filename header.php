@@ -13,7 +13,8 @@
 <header class="site-header">
 	<?php if ( is_home() || is_front_page() ): ?>
 	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-	<p class="site-description"><?php bloginfo( 'description' ); ?></p>
+	<!-- TODO: bloginfo('description')自体を変更すればもう少しスマートかも -->
+	<?php if ( $desc = get_bloginfo( 'description' ) ) echo "<p class=\"site-description\">{$desc}</p>"; ?>
 	<?php elseif ( is_archive() ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
