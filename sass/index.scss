@@ -5,8 +5,7 @@ Author: Rikson
 Author URI: http://rikson.net/
 Description: Grow knowledges up. New article is important but also updates. To make systematic information, this theme is like book.
 Version: 0.1
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GNU General Public License v2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: 
 Text Domain: booklike
 
@@ -106,7 +105,14 @@ label {
 }
 
 .nav-links {
-	margin-top: $small-size;
+	margin-top: $large-size;
+	overflow: hidden;
+	.nav-prev {
+		float: left;
+	}
+	.nav-next {
+		float: right;
+	}
 }
 
 .comments-area {

@@ -26,7 +26,12 @@
 				<span class="tag-links">タグ : <?php the_tags( '', '、' ); ?></span>
 				<span class="author">投稿者 : <?php the_author(); ?></span>
 			</div>
-			<?php the_post_navigation(); ?>
+			<?php
+				the_post_navigation(array(
+					'prev_text' => '&larr;&nbsp;%title',
+					'next_text' => '%title&nbsp;&rarr;'
+				));
+			?>
 		</footer>
 	</article>
 	<?php
