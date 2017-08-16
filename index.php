@@ -8,6 +8,7 @@
 	<?php
 		// カテゴリをキーにして並び替える
 		$posts_order_by_category = array();
+		query_posts('posts_per_page=-1');
 		while (have_posts()) {
 			the_post();
 			$categories = get_the_category();
@@ -19,13 +20,17 @@
 					'date' => get_the_time(get_option('date_format')),
 					'timestamp' => get_the_time('U')
 				);
-				$posts_order_by_category[$category->term_id][] = $formated_post;
+				if(count($posts_order_by_category[$category->term_id]) < 5){
+					$posts_order_by_category[$category->term_id][] = $formated_post;
+				}
 				// 記事更新の場合は記事作成とは別にパースする
 				if (get_the_time('U') !== get_the_modified_time('U')) {
 					$formated_post['status'] = '更新';
 					$formated_post['date'] = get_the_modified_time(get_option('date_format'));
 					$formated_post['timestamp'] = get_the_modified_time('U');
-					$posts_order_by_category[$category->term_id][] = $formated_post;
+					if(count($posts_order_by_category[$category->term_id]) < 5){
+						$posts_order_by_category[$category->term_id][] = $formated_post;
+					}
 				}
 			}
 		}
