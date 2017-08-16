@@ -10,15 +10,15 @@
 		$posts_order_by_category = array();
 		while (have_posts()) {
 			the_post();
-			$formated_post = array(
-				'link' => get_the_permalink(),
-				'title' => get_the_title(),
-				'status' => '作成',
-				'date' => get_the_time(get_option('date_format')),
-				'timestamp' => get_the_time('U')
-			);
 			$categories = get_the_category();
 			foreach ($categories as $category) {
+				$formated_post = array(
+					'link' => get_the_permalink(),
+					'title' => get_the_title(),
+					'status' => '作成',
+					'date' => get_the_time(get_option('date_format')),
+					'timestamp' => get_the_time('U')
+				);
 				$posts_order_by_category[$category->term_id][] = $formated_post;
 				// 記事更新の場合は記事作成とは別にパースする
 				if (get_the_time('U') !== get_the_modified_time('U')) {
