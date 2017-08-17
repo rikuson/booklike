@@ -296,6 +296,7 @@ label {
     .site-header .language-chooser li {
       display: inline-block; }
     .site-header .language-chooser li:not(:last-child):after {
+      color: #333333;
       content: '|';
       padding: 0 .5rem; }
     .site-header .language-chooser .active a {
@@ -418,16 +419,13 @@ label {
   max-width: 100%; }
 
 .entry-meta {
-  display: inline-block;
-  border: 1px solid #000;
-  padding: 0.5rem;
-  margin-top: 1rem; }
+  margin-bottom: 1rem; }
   .entry-meta .created-at,
   .entry-meta .updated-at,
   .entry-meta .category-links,
   .entry-meta .tag-links,
   .entry-meta .author {
-    display: block;
+    margin-right: 0.5rem;
     line-height: normal; }
 
 .site-footer {

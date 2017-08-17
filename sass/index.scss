@@ -111,6 +111,7 @@ label {
 			display: inline-block;
 		}
 		li:not(:last-child):after{
+			color: $text-color;
 			content: '|';
 			padding: 0 .5rem;
 		}
@@ -273,16 +274,13 @@ label {
 }
 
 .entry-meta {
-	display: inline-block;
-	border: 1px solid #000;
-	padding: $small-size;
-	margin-top: $midium-size;
+	margin-bottom: $midium-size;
 	.created-at,
 	.updated-at,
 	.category-links,
 	.tag-links,
 	.author {
-		display: block;
+		margin-right: $small-size;
 		line-height: normal;
 	}
 }
