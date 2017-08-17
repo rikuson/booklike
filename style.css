@@ -122,6 +122,119 @@ img {
     z-index: 100000;
     /* Above WP toolbar. */ }
 
+/* カエレバ */
+.kaerebalink-box p {
+  margin: 0; }
+
+.booklink-box, .kaerebalink-box {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 1em; }
+
+.booklink-image, .kaerebalink-image {
+  width: 100%;
+  margin: 0 0 5px 0; }
+
+.booklink-info, .kaerebalink-info {
+  line-height: 125%;
+  width: 100%; }
+
+.booklink-name, .kaerebalink-name {
+  margin: 0 0 4px 0; }
+
+.booklink-name a, .kaerebalink-name a {
+  color: #0066cc;
+  text-decoration: underline; }
+
+.booklink-name > a, .kaerebalink-name > a {
+  font-size: 16px; }
+
+.booklink-name a:hover, .kaerebalink-name a:hover {
+  color: #FF9900; }
+
+.booklink-powered-date, .kaerebalink-powered-date {
+  font-size: 8px; }
+
+.booklink-detail, .kaerebalink-detail {
+  color: #333333;
+  font-size: 12px;
+  margin: 0 0 10px 0; }
+
+.booklink-link2 a, .kaerebalink-link1 a {
+  width: 90%;
+  display: block;
+  margin: 0px auto 8px;
+  padding: 10px 1px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 2px 2px 1px #dcdcdc; }
+
+.booklink-link2 a:hover, .kaerebalink-link1 a:hover {
+  opacity: 0.6; }
+
+@media screen and (min-width: 800px) {
+  .booklink-box, .kaerebalink-box {
+    text-align: left;
+    display: table; }
+
+  .booklink-image, .kaerebalink-image {
+    vertical-align: top;
+    box-sizing: border-box;
+    display: table-cell;
+    width: 111px;
+    text-align: center;
+    margin: 0; }
+
+  .booklink-image img, .kaerebalink-image img {
+    max-width: 100%; }
+
+  .booklink-info, .kaerebalink-info {
+    line-height: 125%;
+    vertical-align: top;
+    box-sizing: border-box;
+    display: table-cell;
+    padding-left: 25px;
+    width: auto; }
+
+  .booklink-name, .kaerebalink-name {
+    margin: 0; }
+
+  .booklink-name > a, .kaerebalink-name > a {
+    font-size: 16px; }
+
+  .booklink-powered-date, .kaerebalink-powered-date {
+    margin: 6px 0 0 0; }
+
+  .booklink-detail, .kaerebalink-detail {
+    margin: 0 0 14px 0; }
+
+  .booklink-link2 a, .kaerebalink-link1 a {
+    width: auto;
+    text-align: center;
+    margin: none; }
+
+  .booklink-link2 > div, .kaerebalink-link1 > div {
+    width: 33.33%;
+    padding: 0 5px 5px 0;
+    box-sizing: border-box;
+    float: left; } }
+.shoplinkamazon a {
+  color: #ffffff;
+  background: #ff9901;
+  border: 2px solid #ff9901; }
+
+.shoplinkrakuten a {
+  color: #ffffff;
+  background: #bf0000;
+  border: 2px solid #bf0000; }
+
+.shoplinkkindle a {
+  color: #ffffff;
+  background: #0074c1;
+  border: 2px solid #0074c1; }
+
 table {
   margin-bottom: 1rem; }
   table th {
@@ -143,16 +256,6 @@ p {
   p:not(:last-child) {
     margin-bottom: 1rem; }
 
-pre {
-  background: #eee;
-  padding: 0.5rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  overflow-x: scroll; }
-
-a {
-  line-height: normal; }
-
 input[type="text"],
 input[type="email"],
 input[type="search"],
@@ -162,26 +265,6 @@ textarea {
 
 label {
   vertical-align: top; }
-
-.entry-content h2 {
-  font-size: 1.7rem;
-  margin-bottom: 1rem; }
-.entry-content h3 {
-  font-weight: bold;
-  margin-bottom: 0.5rem; }
-.entry-content dl {
-  overflow: hidden;
-  margin-bottom: 1rem; }
-.entry-content dt {
-  float: left;
-  clear: both;
-  line-height: normal; }
-  .entry-content dt:after {
-    content: ':';
-    margin-left: 0.5rem; }
-.entry-content dd {
-  float: left;
-  margin-left: 1rem; }
 
 .page {
   max-width: 980px;
@@ -198,7 +281,26 @@ label {
 
 .site-header {
   padding: 1rem;
-  border-bottom: 1px solid #000; }
+  border-bottom: 2px solid #ccc;
+  position: relative; }
+  .site-header:after {
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 20%;
+    height: 2px;
+    content: '';
+    background: #3498db; }
+  .site-header .language-chooser {
+    display: inline-block; }
+    .site-header .language-chooser li {
+      display: inline-block; }
+    .site-header .language-chooser li:not(:last-child):after {
+      content: '|';
+      padding: 0 .5rem; }
+    .site-header .language-chooser .active a {
+      text-decoration: none;
+      color: #333; }
 
 .post-title,
 .archive-title,
@@ -217,6 +319,16 @@ label {
 .breadcrumbs {
   margin-bottom: 0.5rem; }
 
+.tag-cloud a {
+  font-size: inherit !important;
+  display: inline-block;
+  margin-top: .5rem; }
+  .tag-cloud a:before {
+    content: '#'; }
+
+.switch-area {
+  text-align: right; }
+
 .site-content {
   padding: 1rem; }
   .site-content ol:not(:last-child),
@@ -225,6 +337,48 @@ label {
   .site-content ol li:not(:last-child),
   .site-content ul li:not(:last-child) {
     margin-bottom: 0.5rem; }
+  .site-content dl {
+    overflow: hidden;
+    margin-bottom: 1rem; }
+  .site-content dt {
+    float: left;
+    clear: both;
+    line-height: normal; }
+    .site-content dt:after {
+      content: ':';
+      margin-left: 0.5rem; }
+  .site-content dd {
+    float: left;
+    margin-left: 1rem; }
+  .site-content pre {
+    background: #eee;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    overflow-x: scroll; }
+
+.entry-content img {
+  margin-bottom: 1rem; }
+.entry-content h2 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+  margin-top: 1.7rem;
+  padding: .5em .75em;
+  background: -webkit-repeating-linear-gradient(45deg, #3498db, #3498db 5px, #69b4e6 5px, #69b4e6 10px);
+  background: repeating-linear-gradient(45deg, #3498db, #3498db 5px, #69b4e6 5px, #69b4e6 10px);
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); }
+  .entry-content h2:first-child {
+    margin-top: 0; }
+.entry-content h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  background: #b6f0fc;
+  height: 10px;
+  vertical-align: bottom;
+  line-height: 0;
+  display: inline-block;
+  margin-top: 10px; }
 
 .category-list-title {
   font-size: 1rem; }
@@ -234,7 +388,7 @@ label {
 .category-list {
   padding-left: 1rem; }
   .category-list li:not(:last-child) {
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem; }
 
 .entry-footer {
@@ -260,7 +414,7 @@ label {
 
 .entry-thumbnail img {
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1rem auto;
   max-width: 100%; }
 
 .entry-meta {

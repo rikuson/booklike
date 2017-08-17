@@ -23,6 +23,7 @@ This theme, like WordPress, is licensed under the GPL.
 @import "owned/mixin";
 @import "owned/reset/myresets";
 @import "owned/variables";
+@import "owned/kaereba";
 
 //======================================================================
 // Setting
@@ -60,18 +61,6 @@ p {
 	}
 }
 
-pre {
-	background: #eee;
-	padding: $small-size;
-	border-radius: 5px;
-	margin-bottom: $midium-size;
-	overflow-x: scroll;
-}
-
-a {
-	line-height: normal;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="search"],
@@ -82,34 +71,6 @@ textarea {
 
 label {
 	vertical-align: top;
-}
-
-.entry-content{
-	h2 {
-		font-size: $large-size;
-		margin-bottom: $midium-size;
-	}
-	h3 {
-		font-weight: bold;
-		margin-bottom: $small-size;
-	}
-	dl {
-		overflow: hidden;
-		margin-bottom: $midium-size;
-	}
-	dt {
-		float: left;
-		clear: both;
-		line-height: normal;
-		&:after{
-			content: ':';
-			margin-left: $small-size;
-		}
-	}
-	dd {
-		float: left;
-		margin-left: $midium-size;
-	}
 }
 
 .page {
@@ -133,7 +94,31 @@ label {
 //======================================================================
 .site-header {
 	padding: $midium-size;
-	border-bottom: 1px solid #000;
+	border-bottom: 2px solid #ccc;
+	position: relative;
+	&:after {
+		position: absolute;
+		left: 0;
+		bottom: -2px;
+		width: 20%;
+		height: 2px;
+		content: '';
+		background: #3498db;
+	}
+	.language-chooser {
+		display: inline-block;
+		li{
+			display: inline-block;
+		}
+		li:not(:last-child):after{
+			content: '|';
+			padding: 0 .5rem;
+		}
+		.active a{
+			text-decoration: none;
+			color: #333;
+		}
+	}
 }
 
 .post-title,
@@ -155,6 +140,19 @@ label {
 	margin-bottom: $small-size;
 }
 
+.tag-cloud a {
+	font-size: inherit !important;
+	display: inline-block;
+	margin-top: .5rem;
+	&:before {
+		content: '#';
+	}
+}
+
+.switch-area {
+	text-align: right;
+}
+
 //======================================================================
 // Content
 //======================================================================
@@ -169,6 +167,59 @@ label {
 			margin-bottom: $small-size;
 		}
 	}
+	dl {
+		overflow: hidden;
+		margin-bottom: $midium-size;
+	}
+	dt {
+		float: left;
+		clear: both;
+		line-height: normal;
+		&:after{
+			content: ':';
+			margin-left: $small-size;
+		}
+	}
+	dd {
+		float: left;
+		margin-left: $midium-size;
+	}
+	pre {
+		background: #eee;
+		padding: $small-size;
+		border-radius: 5px;
+		margin-bottom: $midium-size;
+		overflow-x: scroll;
+	}
+}
+
+.entry-content {
+	img {
+		margin-bottom: 1rem;
+	}
+	h2 {
+		font-size: $large-size;
+		margin-bottom: $midium-size;
+		margin-top: $large-size;
+		padding: .5em .75em;
+		background: -webkit-repeating-linear-gradient(45deg, #3498db, #3498db 5px, #69b4e6 5px, #69b4e6 10px);
+		background: repeating-linear-gradient(45deg, #3498db, #3498db 5px, #69b4e6 5px, #69b4e6 10px);
+		color: #fff;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+	h3 {
+		font-weight: bold;
+		margin-bottom: $small-size;
+		background: #b6f0fc;
+		height: 10px;
+		vertical-align: bottom;
+		line-height: 0;
+		display: inline-block;
+		margin-top: 10px;
+	}
 }
 
 .category-list-title {
@@ -181,7 +232,7 @@ label {
 .category-list {
 	padding-left: $midium-size;
 	li:not(:last-child) {
-		border-bottom: 1px solid #888;
+		border-bottom: 1px solid #ccc;
 		padding-bottom: $small-size;
 	}
 }
@@ -217,7 +268,7 @@ label {
 
 .entry-thumbnail img {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto $midium-size auto;
 	max-width: 100%;
 }
 

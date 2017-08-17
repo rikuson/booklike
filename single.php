@@ -16,8 +16,6 @@
 			<div class="entry-meta">
 				<span class="created-at">作成 : <time><?php the_time( get_option( 'date_format' ) ); ?></time></span>
 				<span class="updated-at">更新 : <time><?php the_modified_time( get_option( 'date_format' ) ); ?></time></span>
-				<span class="category-links">カテゴリー : <?php the_category( '、' ); ?></span>
-				<span class="tag-links">タグ : <?php the_tags( '', '、' ); ?></span>
 				<span class="author">投稿者 : <?php the_author(); ?></span>
 			</div>
 			<?php

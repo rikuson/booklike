@@ -98,6 +98,9 @@ function custom_archive_title( $title ){
     if ( is_category() ) {
         $title = single_term_title( '', false );
     }
+    if ( is_tag() ) {
+        $title = single_term_title( '#', false );
+    }
     return $title;
 }
 add_filter( 'get_the_archive_title', 'custom_archive_title', 10 );

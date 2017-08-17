@@ -11,10 +11,18 @@
 <body <?php body_class(); ?>>
 <div class="page">
 <header class="site-header">
+	<div class="switch-area">
+		<?php qtranxf_generateLanguageSelectCode(); ?>
+	</div>
 	<?php if ( is_home() || is_front_page() ): ?>
 	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 	<!-- TODO: bloginfo('description')自体を変更すればもう少しスマートかも -->
-	<?php if ( $desc = get_bloginfo( 'description' ) ) echo "<p class=\"site-description\">{$desc}</p>"; ?>
+	<?php
+		if ( $desc = get_bloginfo( 'description' ) ){
+			echo "<p class=\"site-description\">{$desc}</p>";
+		}
+	?>
+	<div class="tag-cloud"><?php wp_tag_cloud(); ?></div>
 	<?php elseif ( is_archive() ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
@@ -47,6 +55,7 @@
 	</div>
 	<?php endforeach; ?>
 	<h1 class="post-title"><?php the_title(); ?></h1>
+	<div class="tag-cloud"><?php the_tags('', ' ') ?></div>
 	<?php endif; if ( get_header_image() ) : ?>
 	<figure class="custom-header-image">
 		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" />

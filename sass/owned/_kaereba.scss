@@ -1,0 +1,141 @@
+/* カエレバ */
+
+.kaerebalink-box p {
+	margin: 0;
+}
+
+.booklink-box, .kaerebalink-box {
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.booklink-image, .kaerebalink-image {
+	width: 100%;
+	margin: 0 0 5px 0;
+}
+
+.booklink-info, .kaerebalink-info {
+	line-height: 125%;
+	width: 100%;
+}
+
+.booklink-name, .kaerebalink-name {
+	margin: 0 0 4px 0;
+}
+
+.booklink-name a, .kaerebalink-name a {
+	color: #0066cc;
+	text-decoration: underline;
+}
+
+.booklink-name > a, .kaerebalink-name > a {
+	font-size: 16px;
+}
+
+.booklink-name a:hover, .kaerebalink-name a:hover {
+	color: #FF9900;
+}
+
+.booklink-powered-date, .kaerebalink-powered-date {
+	font-size: 8px;
+}
+
+.booklink-detail, .kaerebalink-detail {
+	color: #333333;
+	font-size: 12px;
+	margin: 0 0 10px 0;
+}
+
+.booklink-link2 a, .kaerebalink-link1 a {
+	width: 90%;
+	display: block;
+	margin: 0px auto 8px;
+	padding: 10px 1px;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: bold;
+	box-shadow: 2px 2px 1px #dcdcdc;
+}
+
+.booklink-link2 a:hover, .kaerebalink-link1 a:hover {
+	opacity: 0.6;
+}
+
+@media screen and (min-width: 800px) {
+
+	.booklink-box, .kaerebalink-box {
+		text-align: left;
+		display: table;
+	}
+
+	.booklink-image, .kaerebalink-image {
+		vertical-align: top;
+		box-sizing: border-box;
+		display: table-cell;
+		width: 111px;
+		text-align: center;
+		margin: 0;
+	}
+
+	.booklink-image img, .kaerebalink-image img {
+		max-width: 100%
+	}
+
+	.booklink-info, .kaerebalink-info {
+		line-height: 125%;
+		vertical-align: top;
+		box-sizing: border-box;
+		display: table-cell;
+		padding-left: 25px;
+		width: auto;
+	}
+
+	.booklink-name, .kaerebalink-name {
+		margin: 0;
+	}
+
+	.booklink-name > a, .kaerebalink-name > a {
+		font-size: 16px;
+	}
+
+	.booklink-powered-date, .kaerebalink-powered-date {
+		margin: 6px 0 0 0;
+	}
+
+	.booklink-detail, .kaerebalink-detail {
+		margin: 0 0 14px 0;
+	}
+
+	.booklink-link2 a, .kaerebalink-link1 a {
+		width: auto;
+		text-align: center;
+		margin: none;
+	}
+
+	.booklink-link2 > div, .kaerebalink-link1 > div {
+		width: 33.33%;
+		padding: 0 5px 5px 0;
+		box-sizing: border-box;
+		float: left;
+	}
+}
+
+.shoplinkamazon a {
+	color: #ffffff;
+	background: #ff9901;
+	border: 2px solid #ff9901;
+}
+
+.shoplinkrakuten a {
+	color: #ffffff;
+	background: #bf0000;
+	border: 2px solid #bf0000;
+}
+
+.shoplinkkindle a {
+	color: #ffffff;
+	background: #0074c1;
+	border: 2px solid #0074c1;
+}
