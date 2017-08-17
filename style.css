@@ -381,6 +381,10 @@ label {
   display: inline-block;
   margin-top: 10px; }
 
+.archive.category .post ol {
+  list-style-type: decimal;
+  padding-left: 1rem; }
+
 .category-list-title {
   font-size: 1rem; }
   .category-list-title:not(:last-child) {

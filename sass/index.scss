@@ -223,6 +223,11 @@ label {
 	}
 }
 
+.archive.category .post ol {
+	list-style-type: decimal;
+	padding-left: $midium-size;
+}
+
 .category-list-title {
 	font-size: $midium-size;
 	&:not(:last-child){
