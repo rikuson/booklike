@@ -28,11 +28,12 @@
 		?>
 	</div>
 	<?php
-		the_archive_title('<h1 class="archive-title">', '</h1>');
+		the_archive_title( '<h1 class="archive-title">', '</h1>' );
 		the_archive_description( '<div class="archive-description">', '</div>' );
+		elseif ( is_single() ) :
+		$cats = get_the_category();
+		foreach ( $cats as $cat ) :
 	?>
-	<?php elseif ( is_single() ) : ?>
-	<?php $cats = get_the_category(); foreach ( $cats as $cat ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
 		<?php
@@ -45,9 +46,8 @@
 		?>
 	</div>
 	<?php endforeach; ?>
-	<h1 class="post-title"><?php echo get_the_title(); ?></h1>
-	<?php endif; ?>
-	<?php if ( get_header_image() ): ?>
+	<h1 class="post-title"><?php the_title(); ?></h1>
+	<?php endif; if ( get_header_image() ) : ?>
 	<figure class="custom-header-image">
 		<img src="<?php header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>" />
 	</figure>

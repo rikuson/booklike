@@ -32,22 +32,44 @@ This theme, like WordPress, is licensed under the GPL.
 //======================================================================
 // Basic
 //======================================================================
-ol,
-ul {
-	padding-left: $midium-size;
-	&:not(:last-child){
-		margin-bottom: $midium-size;
+table {
+	margin-bottom: $midium-size;
+	th {
+		background: #eee;
+		font-weight: bold;
 	}
-	li:not(:last-child) {
-		margin-bottom: $small-size;
+	th,
+	td {
+		border: 1px solid #000;
+		padding: $small-size;
 	}
 }
 
-.page {
-	max-width: 980px;
-	width: 100%;
-	margin: 0 auto;
-	background: #fff;
+ol,
+ul {
+	ol,
+	ul {
+		padding-left: $midium-size;
+	}
+}
+
+p {
+	line-height: 1.4em;
+	&:not(:last-child) {
+		margin-bottom: $midium-size;
+	}
+}
+
+pre {
+	background: #eee;
+	padding: $small-size;
+	border-radius: 5px;
+	margin-bottom: $midium-size;
+	overflow-x: scroll;
+}
+
+a {
+	line-height: normal;
 }
 
 input[type="text"],
@@ -60,6 +82,50 @@ textarea {
 
 label {
 	vertical-align: top;
+}
+
+.entry-content{
+	h2 {
+		font-size: $large-size;
+		margin-bottom: $midium-size;
+	}
+	h3 {
+		font-weight: bold;
+		margin-bottom: $small-size;
+	}
+	dl {
+		overflow: hidden;
+		margin-bottom: $midium-size;
+	}
+	dt {
+		float: left;
+		clear: both;
+		line-height: normal;
+		&:after{
+			content: ':';
+			margin-left: $small-size;
+		}
+	}
+	dd {
+		float: left;
+		margin-left: $midium-size;
+	}
+}
+
+.page {
+	max-width: 980px;
+	width: 100%;
+	margin: 0 auto;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+	background: #fff;
+}
+
+.widget {
+	margin-bottom: $midium-size;
+	.widget-title {
+		font-weight: bold;
+		margin-bottom: $small-size;
+	}
 }
 
 //======================================================================
@@ -94,12 +160,29 @@ label {
 //======================================================================
 .site-content {
 	padding: $midium-size;
+	ol,
+	ul {
+		&:not(:last-child){
+			margin-bottom: $midium-size;
+		}
+		li:not(:last-child) {
+			margin-bottom: $small-size;
+		}
+	}
 }
 
-.category-list {
+.category-list-title {
 	font-size: $midium-size;
 	&:not(:last-child){
 		margin-bottom: $small-size;
+	}
+}
+
+.category-list {
+	padding-left: $midium-size;
+	li:not(:last-child) {
+		border-bottom: 1px solid #888;
+		padding-bottom: $small-size;
 	}
 }
 
@@ -109,7 +192,6 @@ label {
 
 .nav-links {
 	margin-top: $large-size;
-	overflow: hidden;
 	.nav-prev {
 		float: left;
 	}
@@ -133,10 +215,17 @@ label {
 	}
 }
 
+.entry-thumbnail img {
+	display: block;
+	margin: 0 auto;
+	max-width: 100%;
+}
+
 .entry-meta {
 	display: inline-block;
 	border: 1px solid #000;
 	padding: $small-size;
+	margin-top: $midium-size;
 	.created-at,
 	.updated-at,
 	.category-links,
@@ -157,5 +246,18 @@ label {
 
 	a {
 		color: #fff;
+	}
+	.widget_categories {
+		overflow: hidden;
+		.cat-item {
+			float: left;
+			&:after {
+				content: '|';
+				margin: 0 $small-size;
+			}
+			&:last-child:after {
+				content: '';
+			}
+		}
 	}
 }

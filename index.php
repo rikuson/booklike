@@ -42,19 +42,19 @@
 
 		foreach ($posts_order_by_category as $cat_ID => $order_posts) :
 	?>
-	<h2 class="category-list">
+	<h2 class="category-list-title">
 		<?php
 			$cat_name = get_the_category_by_ID($cat_ID);
 			$cat_link = get_category_link($cat_ID);
 			echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
 		?>
 	</h2>
-	<ul>
+	<ul class="category-list">
 		<?php
 			usort($order_posts, 'sortByTimestamp');
 			foreach ($order_posts as $order_post) :
 		?>
-		<li><?php echo $order_post['date']; ?> - <?php echo $order_post['status']; ?> - <a href="<?php echo $order_post['link']; ?>" rel="bookmark"><?php echo $order_post['title']; ?></a></li>
+		<li><?php echo $order_post['date']; ?> <?php echo $order_post['status']; ?> <a href="<?php echo $order_post['link']; ?>" rel="bookmark"><?php echo $order_post['title']; ?></a></li>
 		<?php endforeach; ?>
 	</ul>
 	<?php endforeach; ?>

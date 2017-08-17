@@ -5,14 +5,8 @@
 		<header class="entry-header">
 			<?php if ( has_post_thumbnail() ): ?>
 			<figure class="entry-thumbnail">
-				<?php the_post_thumbnail(); ?>
+				<?php the_post_thumbnail('full'); ?>
 			</figure>
-			<?php 
-				/* else:
-				 * サムネイルがない場合に挿入する画像を指定
-				 * その際にはfigureの位置を再考せよ
-				*/
-			?>
 			<?php endif; ?>
 		</header>
 		<div class="entry-content">
