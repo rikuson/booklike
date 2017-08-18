@@ -7,7 +7,7 @@
 				// TODO: 孫カテゴリまでは未対応
 				$term_children = get_term_children($cat, 'category');
 				$prev_term_id = null;
-				query_posts( $query_string . '&posts_per_page=-1' );
+				query_posts( $query_string . '&orderby=menu_order&order=ASC&posts_per_page=-1' );
 				while ( have_posts() ) :
 				the_post();
 				$categories = get_the_category();

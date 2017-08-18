@@ -9,31 +9,46 @@
 		// カテゴリをキーにして並び替える
 		$posts_order_by_category = array();
 		query_posts('posts_per_page=-1');
-		while (have_posts()) {
-			the_post();
-			$categories = get_the_category();
-			foreach ( $categories as $category ) {
-				$formated_post = array(
-					'link' => get_the_permalink(),
-					'title' => get_the_title(),
-					'status' => '作成',
-					'date' => get_the_time(get_option('date_format')),
-					'timestamp' => get_the_time('U')
-				);
+		$i = 0;
+		while (have_posts()) : the_post(); if ( $i === 0 ) :
+	?>
+	<div class="latest-content">
+		<h2>最新記事</h2>
+		<?php if ( has_post_thumbnail() ): ?>
+		<figure class="entry-thumbnail">
+			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail('full'); ?></a>
+		</figure>
+		<h3><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
+		<div class="entry-excerpt"><?php the_excerpt(); ?></div>
+		<?php endif; ?>
+	</div>
+	<h2>カテゴリー</h2>
+	<?php
+		endif;
+		$categories = get_the_category();
+		foreach ( $categories as $category ) {
+			$formated_post = array(
+				'link' => get_the_permalink(),
+				'title' => get_the_title(),
+				'status' => '作成',
+				'date' => get_the_time(get_option('date_format')),
+				'timestamp' => get_the_time('U')
+			);
+			if(count($posts_order_by_category[$category->term_id]) < 5){
+				$posts_order_by_category[$category->term_id][] = $formated_post;
+			}
+			// 記事更新の場合は記事作成とは別にパースする
+			if (get_the_time('U') !== get_the_modified_time('U')) {
+				$formated_post['status'] = '更新';
+				$formated_post['date'] = get_the_modified_time(get_option('date_format'));
+				$formated_post['timestamp'] = get_the_modified_time('U');
 				if(count($posts_order_by_category[$category->term_id]) < 5){
 					$posts_order_by_category[$category->term_id][] = $formated_post;
 				}
-				// 記事更新の場合は記事作成とは別にパースする
-				if (get_the_time('U') !== get_the_modified_time('U')) {
-					$formated_post['status'] = '更新';
-					$formated_post['date'] = get_the_modified_time(get_option('date_format'));
-					$formated_post['timestamp'] = get_the_modified_time('U');
-					if(count($posts_order_by_category[$category->term_id]) < 5){
-						$posts_order_by_category[$category->term_id][] = $formated_post;
-					}
-				}
 			}
 		}
+		$i++;
+		endwhile;
 		wp_reset_query();
 
 		function sortByTimestamp($a, $b){
@@ -42,13 +57,13 @@
 
 		foreach ($posts_order_by_category as $cat_ID => $order_posts) :
 	?>
-	<h2 class="category-list-title">
-		<?php
+	<h3 class="category-list-title">
+<?php
 			$cat_name = get_the_category_by_ID($cat_ID);
-			$cat_link = get_category_link($cat_ID);
-			echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
-		?>
-	</h2>
+		$cat_link = get_category_link($cat_ID);
+		echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
+?>
+	</h3>
 	<ul class="category-list">
 		<?php
 			usort($order_posts, 'sortByTimestamp');

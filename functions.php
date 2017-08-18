@@ -106,12 +106,15 @@ function custom_archive_title( $title ){
 add_filter( 'get_the_archive_title', 'custom_archive_title', 10 );
 
 /*
- * read more ボタンをexcerpt出力の後に設置
+ * excerpt（抜粋）設定
  */
+function custom_excerpt_length( $length ) {
+     return 100;
+}	
+add_filter( 'excerpt_length', 'custom_excerpt_length', 10 );
 function new_excerpt_more( $more ) {
-	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) . '">もっと読む</a>';
+	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) . '">続きを読む</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
-
 
 ?>
