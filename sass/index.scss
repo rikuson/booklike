@@ -40,6 +40,9 @@ body {
 
 a {
 	color: $link-color;
+	&:visited {
+		color: #800080;
+	}
 }
 
 table {
@@ -262,11 +265,11 @@ label {
 .nav-links {
 	margin: $large-size 0;
 	overflow: hidden;
-	.nav-prev {
-		float: left;
+	.nav-previous {
+		float: right;
 	}
 	.nav-next {
-		float: right;
+		float: left;
 	}
 }
 

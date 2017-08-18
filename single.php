@@ -20,8 +20,8 @@
 		<footer class="entry-footer">
 			<?php
 				the_post_navigation(array(
-					'prev_text' => '&larr;&nbsp;%title',
-					'next_text' => '%title&nbsp;&rarr;'
+					'next_text' => '&larr;&nbsp;%title',
+					'prev_text' => '%title&nbsp;&rarr;'
 				));
 			?>
 		</footer>

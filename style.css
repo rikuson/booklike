@@ -241,6 +241,8 @@ body {
 
 a {
   color: #0000EE; }
+  a:visited {
+    color: #800080; }
 
 table {
   margin-bottom: 1rem; }
@@ -411,10 +413,10 @@ label {
 .nav-links {
   margin: 1.7rem 0;
   overflow: hidden; }
-  .nav-links .nav-prev {
-    float: left; }
-  .nav-links .nav-next {
+  .nav-links .nav-previous {
     float: right; }
+  .nav-links .nav-next {
+    float: left; }
 
 .comments-area {
   margin-top: 1.7rem; }
