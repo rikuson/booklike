@@ -93,14 +93,6 @@ label {
 	background: #fff;
 }
 
-.widget {
-	margin-bottom: $midium-size;
-	.widget-title {
-		font-weight: bold;
-		margin-bottom: $small-size;
-	}
-}
-
 //======================================================================
 // Header
 //======================================================================
@@ -349,8 +341,9 @@ label {
 	.category-list {
 		overflow: hidden;
 		margin-bottom: $small-size;
+		text-align: center;
 		.cat-item {
-			float: left;
+			display: inline-block;
 			&:after {
 				content: '|';
 				margin: 0 $small-size;
@@ -361,3 +354,17 @@ label {
 		}
 	}
 }
+
+.widget {
+	overflow: hidden;
+	margin-bottom: $midium-size;
+	.widget-title {
+		font-weight: bold;
+		margin-bottom: $small-size;
+	}
+}
+
+.copyright {
+	text-align: center;
+}
+

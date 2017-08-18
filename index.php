@@ -3,7 +3,7 @@
  * TODO: ログファイルに更新情報を記録するようにする
  */
 ?>
-<?php get_header(); ?>
+<?php global $translations; get_header(); ?>
 <main>
 	<?php
 		// カテゴリをキーにして並び替える
@@ -13,7 +13,7 @@
 		while (have_posts()) : the_post(); if ( $i === 0 ) :
 	?>
 	<div class="latest-content">
-		<h2>最新記事</h2>
+		<h2><?php echo $translations['Latest Article']; ?></h2>
 		<?php if ( has_post_thumbnail() ): ?>
 		<figure class="entry-thumbnail">
 			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail('full'); ?></a>
@@ -22,7 +22,7 @@
 		<div class="entry-excerpt"><?php the_excerpt(); ?></div>
 		<?php endif; ?>
 	</div>
-	<h2>カテゴリー</h2>
+	<h2><?php echo $translations['Category']; ?></h2>
 	<?php
 		endif;
 		$categories = get_the_category();
@@ -30,7 +30,7 @@
 			$formated_post = array(
 				'link' => get_the_permalink(),
 				'title' => get_the_title(),
-				'status' => '作成',
+				'status' => $translations['Create'],
 				'date' => get_the_time(get_option('date_format')),
 				'timestamp' => get_the_time('U')
 			);
@@ -39,7 +39,7 @@
 			}
 			// 記事更新の場合は記事作成とは別にパースする
 			if (get_the_time('U') !== get_the_modified_time('U')) {
-				$formated_post['status'] = '更新';
+				$formated_post['status'] = $translations['Update'];
 				$formated_post['date'] = get_the_modified_time(get_option('date_format'));
 				$formated_post['timestamp'] = get_the_modified_time('U');
 				if(count($posts_order_by_category[$category->term_id]) < 5){

@@ -4,6 +4,29 @@
  * file name : functions.php
  * created   : 2017/06/13
  */
+$translations = array(
+	'ja' => array(
+		'Update' => '更新',
+		'Create' => '作成',
+		'Latest Article' => '最新記事',
+		'Updated At' => '更新日',
+		'Created At' => '作成日',
+		'Author' => '投稿者',
+		'Category' => 'カテゴリ',
+		'Read More' => '続きを読む'
+	),
+	'en' => array(
+		'Update' => 'Update',
+		'Create' => 'Create',
+		'Latest Article' => 'Latest Article',
+		'Updated At' => 'Updated At',
+		'Created At' => 'Created At',
+		'Author' => 'Author',
+		'Category' => 'Category',
+		'Read More' => 'Read More'
+	)
+);
+$translations = $translations[qtranxf_getLanguage()];
 
 if ( ! function_exists( 'odbase_setup' ) ) :
 
@@ -113,7 +136,8 @@ function custom_excerpt_length( $length ) {
 }	
 add_filter( 'excerpt_length', 'custom_excerpt_length', 10 );
 function new_excerpt_more( $more ) {
-	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) . '">続きを読む</a>';
+	global $translations;
+	return '<a class="read-more" href="'. get_permalink( get_the_ID() ) . '">' . $translations['Read More'] . '</a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 

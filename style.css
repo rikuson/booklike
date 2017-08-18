@@ -282,12 +282,6 @@ label {
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
   background: #fff; }
 
-.widget {
-  margin-bottom: 1rem; }
-  .widget .widget-title {
-    font-weight: bold;
-    margin-bottom: 0.5rem; }
-
 .page-nav {
   overflow: hidden;
   padding: 0.5rem;
@@ -473,13 +467,24 @@ label {
     color: #fff; }
   .site-footer .category-list {
     overflow: hidden;
-    margin-bottom: 0.5rem; }
+    margin-bottom: 0.5rem;
+    text-align: center; }
     .site-footer .category-list .cat-item {
-      float: left; }
+      display: inline-block; }
       .site-footer .category-list .cat-item:after {
         content: '|';
         margin: 0 0.5rem; }
       .site-footer .category-list .cat-item:last-child:after {
         content: ''; }
+
+.widget {
+  overflow: hidden;
+  margin-bottom: 1rem; }
+  .widget .widget-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem; }
+
+.copyright {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
