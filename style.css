@@ -235,6 +235,13 @@ img {
   background: #0074c1;
   border: 2px solid #0074c1; }
 
+html,
+body {
+  color: #333333; }
+
+a {
+  color: #0000EE; }
+
 table {
   margin-bottom: 1rem; }
   table th {
@@ -279,6 +286,27 @@ label {
     font-weight: bold;
     margin-bottom: 0.5rem; }
 
+.page-nav {
+  overflow: hidden;
+  padding: 0.5rem;
+  border-bottom: 4px double #ccc; }
+  .page-nav .breadcrumbs {
+    float: left; }
+  .page-nav .language-chooser {
+    text-align: right;
+    float: right; }
+    .page-nav .language-chooser li {
+      display: inline-block; }
+    .page-nav .language-chooser li:not(:last-child):after {
+      color: #333333;
+      content: '|';
+      padding: 0 .5rem; }
+    .page-nav .language-chooser a {
+      color: #0000EE; }
+    .page-nav .language-chooser .active a {
+      text-decoration: none;
+      color: #333; }
+
 .site-header {
   padding: 1rem;
   border-bottom: 2px solid #ccc;
@@ -291,17 +319,6 @@ label {
     height: 2px;
     content: '';
     background: #3498db; }
-  .site-header .language-chooser {
-    display: inline-block; }
-    .site-header .language-chooser li {
-      display: inline-block; }
-    .site-header .language-chooser li:not(:last-child):after {
-      color: #333333;
-      content: '|';
-      padding: 0 .5rem; }
-    .site-header .language-chooser .active a {
-      text-decoration: none;
-      color: #333; }
 
 .post-title,
 .archive-title,
@@ -317,9 +334,6 @@ label {
 .site-description {
   margin-top: 1rem; }
 
-.breadcrumbs {
-  margin-bottom: 0.5rem; }
-
 .tag-cloud a {
   font-size: inherit !important;
   display: inline-block;
@@ -327,11 +341,8 @@ label {
   .tag-cloud a:before {
     content: '#'; }
 
-.switch-area {
-  text-align: right; }
-
 .site-content {
-  padding: 1rem; }
+  padding: 1.7rem 1rem; }
   .site-content ol:not(:last-child),
   .site-content ul:not(:last-child) {
     margin-bottom: 1rem; }
@@ -383,7 +394,7 @@ label {
 
 .archive.category .post ol {
   list-style-type: decimal;
-  padding-left: 1rem; }
+  padding-left: 1.7rem; }
 
 .category-list-title {
   font-size: 1rem; }
@@ -400,7 +411,8 @@ label {
   margin-top: 0.5rem; }
 
 .nav-links {
-  margin-top: 1.7rem; }
+  margin: 1.7rem 0;
+  overflow: hidden; }
   .nav-links .nav-prev {
     float: left; }
   .nav-links .nav-next {
@@ -440,6 +452,8 @@ label {
     color: #fff; }
   .site-footer .widget_categories {
     overflow: hidden; }
+    .site-footer .widget_categories a {
+      line-height: normal; }
     .site-footer .widget_categories .cat-item {
       float: left; }
       .site-footer .widget_categories .cat-item:after {

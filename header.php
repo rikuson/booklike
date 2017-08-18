@@ -10,10 +10,32 @@
 
 <body <?php body_class(); ?>>
 <div class="page">
-<header class="site-header">
-	<div class="switch-area">
-		<?php qtranxf_generateLanguageSelectCode(); ?>
+<nav class="page-nav">
+	<?php if ( is_archive() ) : ?>
+	<div class="breadcrumbs">
+		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
+		<?php
+			$cats = get_the_category();
+			foreach ( $cats as $cat ) {
+				if ( $cat->category_parent ) {
+					echo '&gt;&nbsp;';
+					echo mb_substr( get_category_parents( $cat->parent, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
+				}
+			}
+		?>
 	</div>
+	<?php elseif ( is_single() ) : $cats = get_the_category(); foreach ( $cats as $cat ) : ?>
+	<div class="breadcrumbs">
+		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
+		<?php
+			echo '&gt;&nbsp;';
+			echo mb_substr( get_category_parents( $cat->term_id, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
+		?>
+	</div>
+	<?php endforeach; endif; ?>
+	<?php qtranxf_generateLanguageSelectCode(); ?>
+</nav>
+<header class="site-header">
 	<?php if ( is_home() || is_front_page() ): ?>
 	<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 	<!-- TODO: bloginfo('description')自体を変更すればもう少しスマートかも -->
@@ -23,37 +45,12 @@
 		}
 	?>
 	<div class="tag-cloud"><?php wp_tag_cloud(); ?></div>
-	<?php elseif ( is_archive() ) : ?>
-	<div class="breadcrumbs">
-		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
-		<?php
-			$cat = get_the_category();
-			$cat = $cat[0];
-			if ( $cat->category_parent ) {
-				echo '&nbsp;&gt;&nbsp;';
-				echo get_category_parents($cat->term_id, true, '&nbsp;&gt;&nbsp;');
-			}
-		?>
-	</div>
 	<?php
+		elseif ( is_archive() ) :
 		the_archive_title( '<h1 class="archive-title">', '</h1>' );
 		the_archive_description( '<div class="archive-description">', '</div>' );
 		elseif ( is_single() ) :
-		$cats = get_the_category();
-		foreach ( $cats as $cat ) :
 	?>
-	<div class="breadcrumbs">
-		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
-		<?php
-			if ( $cat->category_parent ) {
-				echo '&nbsp;&gt;&nbsp;';
-				echo get_category_parents($cat->term_id, true, '&nbsp;&gt;&nbsp;');
-			}
-			echo '&nbsp;&gt;&nbsp;';
-			echo '<a href="' . get_category_link($cat->term_id) . '">' . $cat->name . '</a>';
-		?>
-	</div>
-	<?php endforeach; ?>
 	<h1 class="post-title"><?php the_title(); ?></h1>
 	<div class="tag-cloud"><?php the_tags('', ' ') ?></div>
 	<?php endif; if ( get_header_image() ) : ?>

@@ -33,6 +33,15 @@ This theme, like WordPress, is licensed under the GPL.
 //======================================================================
 // Basic
 //======================================================================
+html,
+body {
+	color: $text-color;
+}
+
+a {
+	color: $link-color;
+}
+
 table {
 	margin-bottom: $midium-size;
 	th {
@@ -92,6 +101,34 @@ label {
 //======================================================================
 // Header
 //======================================================================
+.page-nav {
+	overflow: hidden;
+	padding: $small-size;
+	border-bottom: 4px double #ccc;
+	.breadcrumbs {
+		float: left;
+	}
+	.language-chooser {
+		text-align: right;
+		float: right;
+		li{
+			display: inline-block;
+		}
+		li:not(:last-child):after{
+			color: $text-color;
+			content: '|';
+			padding: 0 .5rem;
+		}
+		a {
+			color: $link-color;
+		}
+		.active a{
+			text-decoration: none;
+			color: #333;
+		}
+	}
+}
+
 .site-header {
 	padding: $midium-size;
 	border-bottom: 2px solid #ccc;
@@ -104,21 +141,6 @@ label {
 		height: 2px;
 		content: '';
 		background: #3498db;
-	}
-	.language-chooser {
-		display: inline-block;
-		li{
-			display: inline-block;
-		}
-		li:not(:last-child):after{
-			color: $text-color;
-			content: '|';
-			padding: 0 .5rem;
-		}
-		.active a{
-			text-decoration: none;
-			color: #333;
-		}
 	}
 }
 
@@ -137,10 +159,6 @@ label {
 	margin-top: $midium-size;
 }
 
-.breadcrumbs {
-	margin-bottom: $small-size;
-}
-
 .tag-cloud a {
 	font-size: inherit !important;
 	display: inline-block;
@@ -150,15 +168,11 @@ label {
 	}
 }
 
-.switch-area {
-	text-align: right;
-}
-
 //======================================================================
 // Content
 //======================================================================
 .site-content {
-	padding: $midium-size;
+	padding: $large-size $midium-size;
 	ol,
 	ul {
 		&:not(:last-child){
@@ -225,7 +239,7 @@ label {
 
 .archive.category .post ol {
 	list-style-type: decimal;
-	padding-left: $midium-size;
+	padding-left: $large-size;
 }
 
 .category-list-title {
@@ -248,7 +262,8 @@ label {
 }
 
 .nav-links {
-	margin-top: $large-size;
+	margin: $large-size 0;
+	overflow: hidden;
 	.nav-prev {
 		float: left;
 	}
@@ -303,6 +318,9 @@ label {
 	}
 	.widget_categories {
 		overflow: hidden;
+		a {
+			line-height: normal;
+		}
 		.cat-item {
 			float: left;
 			&:after {
