@@ -11,29 +11,29 @@
 <body <?php body_class(); ?>>
 <div class="page">
 <nav class="page-nav">
+	<?php qtranxf_generateLanguageSelectCode(); ?>
 	<?php if ( is_archive() ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
 		<?php
-			$cats = get_the_category();
-			foreach ( $cats as $cat ) {
-				if ( $cat->category_parent ) {
+			$categories = get_the_category();
+			foreach ( $categories as $category ) {
+				if ( $category->category_parent ) {
 					echo '&gt;&nbsp;';
-					echo mb_substr( get_category_parents( $cat->parent, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
+					echo mb_substr( get_category_parents( $category->parent, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
 				}
 			}
 		?>
 	</div>
-	<?php elseif ( is_single() ) : $cats = get_the_category(); foreach ( $cats as $cat ) : ?>
+	<?php elseif ( is_single() ) : $categories = get_the_category(); foreach ( $categories as $category ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
 		<?php
 			echo '&gt;&nbsp;';
-			echo mb_substr( get_category_parents( $cat->term_id, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
+			echo mb_substr( get_category_parents( $category->term_id, true, '&nbsp;&gt;&nbsp;' ), 0, -16 );
 		?>
 	</div>
 	<?php endforeach; endif; ?>
-	<?php qtranxf_generateLanguageSelectCode(); ?>
 </nav>
 <header class="site-header">
 	<?php if ( is_home() || is_front_page() ): ?>

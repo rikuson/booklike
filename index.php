@@ -12,7 +12,7 @@
 		while (have_posts()) {
 			the_post();
 			$categories = get_the_category();
-			foreach ($categories as $category) {
+			foreach ( $categories as $category ) {
 				$formated_post = array(
 					'link' => get_the_permalink(),
 					'title' => get_the_title(),

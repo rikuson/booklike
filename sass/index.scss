@@ -105,8 +105,8 @@ label {
 	overflow: hidden;
 	padding: $small-size;
 	border-bottom: 4px double #ccc;
-	.breadcrumbs {
-		float: left;
+	.breadcrumbs:not(:last-child) {
+		margin-bottom: $small-size;
 	}
 	.language-chooser {
 		text-align: right;
@@ -206,6 +206,19 @@ label {
 		margin-bottom: $midium-size;
 		overflow-x: scroll;
 	}
+	.category-list-title {
+		font-size: $midium-size;
+		&:not(:last-child){
+			margin-bottom: $small-size;
+		}
+	}
+	.category-list {
+		padding-left: $midium-size;
+		li:not(:last-child) {
+			border-bottom: 1px solid #ccc;
+			padding-bottom: $small-size;
+		}
+	}
 }
 
 .entry-content {
@@ -240,21 +253,6 @@ label {
 .archive.category .post ol {
 	list-style-type: decimal;
 	padding-left: $large-size;
-}
-
-.category-list-title {
-	font-size: $midium-size;
-	&:not(:last-child){
-		margin-bottom: $small-size;
-	}
-}
-
-.category-list {
-	padding-left: $midium-size;
-	li:not(:last-child) {
-		border-bottom: 1px solid #ccc;
-		padding-bottom: $small-size;
-	}
 }
 
 .entry-footer {
@@ -316,11 +314,9 @@ label {
 	a {
 		color: #fff;
 	}
-	.widget_categories {
+	.category-list {
 		overflow: hidden;
-		a {
-			line-height: normal;
-		}
+		margin-bottom: $small-size;
 		.cat-item {
 			float: left;
 			&:after {
