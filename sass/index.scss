@@ -243,6 +243,23 @@ label {
 }
 
 .entry-content {
+	ul {
+		list-style: disc;
+		padding-left: $large-size;
+	}
+	ol {
+		list-style: decimal;
+		padding-left: $large-size;
+	}
+	blockquote{
+		padding-left: 1em;
+		border-left: 8px solid #CCC;
+		color: #666;
+		margin-bottom: $midium-size;
+	}
+	iframe{
+		margin-bottom: $midium-size;
+	}
 	strong{
 		font-size: 1.2em;
 		font-weight: bold;

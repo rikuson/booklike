@@ -393,6 +393,19 @@ label {
 .latest-content {
   margin-bottom: 1.7rem; }
 
+.entry-content ul {
+  list-style: disc;
+  padding-left: 1.7rem; }
+.entry-content ol {
+  list-style: decimal;
+  padding-left: 1.7rem; }
+.entry-content blockquote {
+  padding-left: 1em;
+  border-left: 8px solid #CCC;
+  color: #666;
+  margin-bottom: 1rem; }
+.entry-content iframe {
+  margin-bottom: 1rem; }
 .entry-content strong {
   font-size: 1.2em;
   font-weight: bold; }
