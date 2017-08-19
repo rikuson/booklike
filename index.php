@@ -5,13 +5,7 @@
 ?>
 <?php global $translations; get_header(); ?>
 <main>
-	<?php
-		// カテゴリをキーにして並び替える
-		$posts_order_by_category = array();
-		query_posts('posts_per_page=-1');
-		$i = 0;
-		while (have_posts()) : the_post(); if ( $i === 0 ) :
-	?>
+	<?php query_posts('posts_per_page==1'); while (have_posts()) : the_post(); ?>
 	<div class="latest-content">
 		<h2><?php echo $translations['Latest Article']; ?></h2>
 		<?php if ( has_post_thumbnail() ): ?>
@@ -22,9 +16,15 @@
 		<div class="entry-excerpt"><?php the_excerpt(); ?></div>
 		<?php endif; ?>
 	</div>
+	<?php endwhile; wp_reset_query(); ?>
 	<h2><?php echo $translations['Category']; ?></h2>
 	<?php
-		endif;
+		// カテゴリをキーにして並び替える
+		$posts_order_by_category = array();
+		query_posts('orderby=menu_order&order=ASC&posts_per_page=-1');
+		while (have_posts()) : the_post();
+	?>
+	<?php
 		$categories = get_the_category();
 		foreach ( $categories as $category ) {
 			$formated_post = array(
@@ -47,7 +47,6 @@
 				}
 			}
 		}
-		$i++;
 		endwhile;
 		wp_reset_query();
 
