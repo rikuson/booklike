@@ -26,7 +26,12 @@ $translations = array(
 		'Read More' => 'Read More'
 	)
 );
-$translations = $translations[qtranxf_getLanguage()];
+
+if ( function_exists('qtranxf_getLanguage') ) {
+	$translations = $translations[qtranxf_getLanguage()];
+} else {
+	$translations = $translations['ja'];
+}
 
 if ( ! function_exists( 'odbase_setup' ) ) :
 

@@ -11,7 +11,7 @@
 <body <?php body_class(); ?>>
 <div class="page">
 <nav class="page-nav">
-	<?php qtranxf_generateLanguageSelectCode(); ?>
+	<?php if (function_exists( 'qtranxf_generateLanguageSelectCode' )) qtranxf_generateLanguageSelectCode(); ?>
 	<?php if ( is_archive() ) : ?>
 	<div class="breadcrumbs">
 		<a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a>
